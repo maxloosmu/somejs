@@ -1,3 +1,5 @@
+/* 2016 Data Visualization with Python and JavaScript
+Chapter 2 */
 var data = [1, 2, 3, 4, 5];
 var sum = 0;
 
