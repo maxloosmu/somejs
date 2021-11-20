@@ -55,13 +55,13 @@ console.log(typeof trace);
 // reading the original obj["benchmark"]
 // to 'apply' to, because it is non-existent
 // due to a lack of association.
-obj = {};
-// benchmark.call(obj);
-// benchmark.apply(obj);
-obj.benchmark = benchmark;
-trace(obj, "benchmark");
-obj.benchmark(1000000);
-obj["benchmark"](1000000);
+    obj = {};
+    // benchmark.call(obj);
+    // benchmark.apply(obj);
+    obj.benchmark = benchmark;
+    trace(obj, "benchmark");
+    obj.benchmark(1000000);
+    obj["benchmark"](1000000);
 
 // This totally doesn't work,
 // requires name string inside []:
