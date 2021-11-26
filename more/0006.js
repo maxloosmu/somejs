@@ -188,8 +188,15 @@ let testRange = new Range(1,5);
 console.log(testRange.toString());
 // for(let x of testRange) console.log(x);
 
-// function to test the return of 2 functions:
+// https://stackoverflow.com/questions/13218472/calling-a-function-defined-inside-another-function-in-javascript
+// function to test the return of 2 functions,
+// and to confirm that nested functions are not
+// exposed to outside calling, unless returned:
 const testPair = function() {
+  // return0 cannot be called from outside:
+  /*function return0() {
+    console.log("000");
+  }*/
   return {
     return1() {
       console.log(111);
@@ -201,6 +208,7 @@ const testPair = function() {
 }
 testPair().return1();
 testPair().return2();
+// testPair().return0();
 
 // https://stackoverflow.com/questions/812961/getters-setters-for-dummies
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get
