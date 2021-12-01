@@ -10,6 +10,7 @@
 
 // This is the latest way to code a class.
 class Person1 {
+  species = "Homo Sapiens";
   constructor(name, age) {
     this.name = name;
     this.age = age;
@@ -93,3 +94,31 @@ let jim = new PersonWithSecondPhone("Jim", 8, 1111, 2222);
 console.log(jim.secondPhoneNum());
 console.log(jim.phoneNum());
 console.log(jim.toString());
+
+let jen = new Person1("Jen", 60);
+console.log(Person1.species);          // undefined
+console.log(jen.species);              // Homo Sapiens
+Person1.species2 = "Homo Sapiens 2"
+console.log(Person1.species2);         // Homo Sapiens 2
+console.log(jen.species2);             // undefined
+console.log(jen.constructor.species2); // Homo Sapiens 2
+jen.constructor.species2 = "Woman";
+console.log(Person1.species2);         // Woman
+console.log(jen.species2);             // undefined
+console.log(jen.constructor.species2); // Woman
+jen.species2 = "Blind Woman"
+console.log(Person1.species2);         // Woman
+console.log(jen.species2);             // Blind Woman
+console.log(jen.constructor.species2); // Woman
+console.log(Person1.prototype.species2);// undefined
+Person1.prototype.species2 = "Man";
+let jack = new Person1("Jack", 50);
+console.log(Person1.species2);         // Woman
+console.log(jen.species2);             // Blind Woman
+console.log(jen.constructor.species2); // Woman
+console.log(Person1.prototype.species2);// Man
+console.log(jack.species2);             // Man
+console.log(jack.constructor.species2); // Woman
+jack.species2 = "Deaf Man"
+console.log(jack.species2);             // Deaf Man
+console.log(Person1.prototype.species2);// Man
