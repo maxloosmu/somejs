@@ -47,8 +47,22 @@ class Person2 {
     this.#age = value;
   }
 }
+Person2.prototype.addAge = function(years) {
+  return new Person2(this.myName, this.myAge + years);
+}
+Person2.anyNameAge = function(value) {
+  return new Person2(value, value);
+}
+Person2.nilNameAge = function() {
+  return Person2.anyNameAge(0);
+}
 let sam = new Person2("Sam", 27);
 console.log(sam.myName);   // Sam
 console.log(sam.myAge);   // 27
 sam.myAge = 37;
 console.log(sam.myAge);   // 37
+let newPerson = Person2.nilNameAge();
+console.log(newPerson.myName + " " + newPerson.myAge);
+let newPerson2 = newPerson.addAge(10);
+console.log(newPerson2.myAge);
+
